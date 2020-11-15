@@ -1,0 +1,7 @@
+/target
+/.idea
+*.iml
+/src/test
+/out
+/src/META-INF
+/src/draft/

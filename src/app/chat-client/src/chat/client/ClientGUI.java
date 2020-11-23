@@ -66,22 +66,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
 
     private ClientGUI() {
 
-        if (logFile.exists()) { //обновление чата из лога
-            try {
-                StringBuilder stringBuilder = new StringBuilder();
-                List<String> strings = Files.lines(Paths.get("log"))
-                        .map(s -> s + " \n")
-                        .collect(Collectors.toList());
 
-                int i = strings.size() > LIMIT_LINES ? strings.size() - LIMIT_LINES : 0;
-                for (int j = i; j < strings.size(); j++) {
-                    stringBuilder.append(strings.get(j));
-                }
-                log.setText(stringBuilder.toString());
-            } catch (IOException e) {
-                throw new RuntimeException("Error method ClientGUI()");
-            }
-        }
 
         Thread.setDefaultUncaughtExceptionHandler(this);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
